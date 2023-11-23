@@ -24,8 +24,13 @@
 
 .leaflet-popup-content {
   margin: 16px;
+  margin-left: 0px;
   p {
     margin: 0;
+  }
+
+  &-wrapper {
+    padding: 16px;
   }
 }
 
@@ -82,4 +87,31 @@
   } 100%, 0% {
     transform: scale(1.0); 
   } 
+}
+
+// Custom scrollbar
+:root {
+  --scrollbarColorPrimary: #724923;
+  --scrollbarColorSecondary: #b19b85;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: 6px;
+  scrollbar-color: var(--scrollbarColorPrimary);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: var(--scrollbarColorSecondary);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbarColorPrimary);
+  border-radius: 8px;
 }

@@ -1,10 +1,10 @@
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import React from 'react';
 
 interface Props {
   children: React.ReactNode
   imageProps: {
-    src: string
+    src: StaticImageData
     alt: string
   }
   inverted?: boolean
@@ -37,11 +37,13 @@ export default function AboutCard({ children, imageProps, inverted }: Props) {
         alt=""
         className={`absolute top-[-60px] md:top-[-40px] ${inverted ? 'left-[-40px] -rotate-12' : 'right-[-40px] rotate-12'}`}
       />
-      <p
-        className={`text-base lg:h-[70%] lg:flex lg:items-center font-medium lg:text-lg h-fit relative before:pointer-events-none before:content-[''] before:w-[110%] before:h-[120%] lg:before:w-[125%] lg:before:h-[140%] xl:before:w-[120%] before:bg-dashed-border before:rounded-2xl before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2 ${inverted ? 'before:rotate-[2.15deg]' : 'before:-rotate-[2.15deg]'}`}
+      <div
+        className="text-base lg:h-[70%] lg:flex lg:items-center font-medium lg:text-lg h-fit relative before:pointer-events-none before:content-[''] before:w-[110%] before:h-[120%] lg:before:w-[125%] lg:before:h-[140%] xl:before:w-[120%] before:bg-dashed-border before:rounded-2xl before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2"
       >
-        {children}
-      </p>
+        <div>
+          {children}
+        </div>
+      </div>
       <Image
         src={imageProps.src}
         alt={imageProps.alt}

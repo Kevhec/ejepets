@@ -28,16 +28,16 @@ interface StyleTypeClasses {
 }
 
 const mapTypeClasses: StyleTypeClasses = {
-  container: 'grid grid-cols-[0.5fr_1fr] md:flex md:flex-col items-center max-h-32 md:max-h-60 w-72 md:w-40',
-  image: 'w-28 md:w-full md:max-w-[200px] md:h-32 h-full',
-  figure: 'h-full md:w-full md:h-auto',
-  content: 'max-h-full overflow-y-auto md:w-full',
+  container: 'grid grid-cols-[0.5fr_1fr] items-center max-h-32 md:max-h-40 w-72 md:w-80',
+  image: 'w-28 md:w-full md:max-w-[200px] h-full',
+  figure: 'h-full',
+  content: 'max-h-full overflow-y-auto h-full',
   title: 'leading-none',
   contactItem: 'text-left',
 };
 
 const directoryTypeClasses: StyleTypeClasses = {
-  container: 'flex flex-col md:gap-8 lg:h-[212px] lg:grid lg:grid-cols-[200px_1fr] lg:grid-cols-[250px_1fr] items-center text-center overflow-hidden',
+  container: 'flex p-4 flex-col md:gap-8 lg:h-[212px] lg:grid lg:grid-cols-[200px_1fr] lg:grid-cols-[250px_1fr] items-center text-center overflow-hidden',
   image: 'max-h-[133px] md:max-h-[179px]',
   figure: 'w-full',
   content: 'md:text-left md:w-full overflow-hidden md:flex md:flex-col h-full',
@@ -46,7 +46,7 @@ const directoryTypeClasses: StyleTypeClasses = {
 };
 
 const baseStyles: StyleTypeClasses = {
-  container: 'gap-2 p-4',
+  container: 'gap-2',
   image: 'object-cover rounded-md',
   figure: '',
   content: 'text-sm',
@@ -103,7 +103,7 @@ export default function StoreCard({
       <div className={layoutClasses.content}>
         <h2 className={layoutClasses.title}>{name}</h2>
         <p className={layoutClasses.description}>{description}</p>
-        <ul className="mt-2 italic">
+        <ul className="mt-2">
           {
             Object.keys(contact).map((key, i) => {
               const contactValue = contact[key as keyof typeof contact];
@@ -114,13 +114,14 @@ export default function StoreCard({
                   title={contactValue}
                 >
                   {
-                    key === 'website' ? (
+                    contactValue && key === 'website' ? (
                       <a
                         href={contactValue}
                         target="_blank"
                         rel="noreferrer"
+                        className="block px-2 py-1 text-sm bg-slate-300 rounded-md w-min visited:text-inherit hover:bg-opacity-75 transition-all"
                       >
-                        {contactValue}
+                        Sitio Web
                       </a>
                     ) : (
                       <p>

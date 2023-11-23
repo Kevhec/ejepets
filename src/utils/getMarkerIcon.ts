@@ -24,7 +24,7 @@ export default function getMarkerIcon(type: string) {
     iconUrl: iconSrc,
     iconSize: [25, 25],
     iconAnchor: [25 / 2, 26],
-    popupAnchor: [25 / 2, 26],
+    popupAnchor: [0, -26],
     shadowUrl: '/markers/marker-shadow.png',
     shadowSize: [20, 13],
     shadowAnchor: [2, 18],

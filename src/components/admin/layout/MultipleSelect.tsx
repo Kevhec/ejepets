@@ -18,7 +18,7 @@ export default function MultipleSelect() {
       />
       <SelectOption
         label="Peluquería"
-        value="peluquería"
+        value="peluqueria"
         name="type:peluqueria"
         id="type:peluqueria"
       />

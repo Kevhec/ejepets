@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import useStoresContext from '@/hooks/useStoresContext';
 import mergeTailwind from '@/utils/mergeTailwind';
 import type { StoreName } from '@/types/stores';
+import useClickOutside from '@/hooks/useClickOutisde';
 import DropdownButton from './DropdownButton';
 import DropdownInput from './DropdownInput';
 import type { IconVariant } from '../icon/iconTypes';
@@ -29,12 +30,16 @@ export default function StoresFilter() {
   const [hasDropdown, setHasDropdown] = useState(false);
   const { setSelectedFilter, selectedFilter } = useStoresContext();
   const storesKeys = Object.keys(storeStyleMap) as StoreName[];
+  const ref = useClickOutside(() => {
+    setHasDropdown(false);
+  });
 
   const handleFilterClick = (evt: React.ChangeEvent<HTMLInputElement>) => {
     const newStore = evt.target.value as StoreName;
 
     if (setSelectedFilter) {
       setSelectedFilter(newStore);
+      setHasDropdown(false);
     }
   };
 
@@ -49,7 +54,7 @@ export default function StoresFilter() {
   );
 
   return (
-    <div className="relative z-30">
+    <div ref={ref} className="relative z-30">
       <DropdownButton
         className={`${storeDefaultStyle} ${storeStyleMap[selectedFilter]} capitalize text-left w-[124px]`}
         onClick={handleFilterToggle}
@@ -58,7 +63,7 @@ export default function StoresFilter() {
         { selectedFilter }
       </DropdownButton>
       <div className={dropdownClasses}>
-        <form className="rounded-b-lg md:flex md:flex-col min-w-[280px] md:min-w-0 grid grid-cols-2 gap-2 bg-black p-3">
+        <form className="rounded-b-lg min-w-[280px] grid grid-cols-2 gap-2 bg-black p-3">
           {
             storesKeys.map((store) => {
               const filterStyle = `${storeDefaultStyle} ${storeStyleMap[store]} capitalize`;

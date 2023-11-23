@@ -17,12 +17,10 @@ export default function CardsContainer() {
         const pointer = i + 1;
 
         const hasDashedBorder = pointer % 4 === 0 || pointer % 4 === 1 || !isTablet;
-        const hasInvertedDashedBorder = !isTablet ? pointer % 2 === 0 : pointer % 4 === 1;
 
         const dashedBorderClasses = mergeTailwind(
           'relative',
           { "before:pointer-events-none before:content-[''] before:w-[105%] before:h-[105%] lg:before:h-[110%] before:bg-dashed-border before:rounded-2xl before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2": hasDashedBorder },
-          [hasInvertedDashedBorder ? 'before:rotate-[1.15deg]' : 'before:-rotate-[1.15deg]'],
         );
 
         return (
