@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Loader() {
   return (
-    <main className="bg-light-blue grid items-center p-5 min-h-screen">
+    <div className="w-full h-full flex items-center justify-center">
       <div className="sk-fading-circle">
         <div className="sk-circle1 sk-circle" />
         <div className="sk-circle2 sk-circle" />
@@ -17,6 +17,6 @@ export default function Loader() {
         <div className="sk-circle11 sk-circle" />
         <div className="sk-circle12 sk-circle" />
       </div>
-    </main>
+    </div>
   );
 }

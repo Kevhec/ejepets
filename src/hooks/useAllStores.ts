@@ -6,7 +6,7 @@ import { storesCol } from '@/services/firebase/config';
 export default function useAllStores() {
   const [allStores, setAllStores] = useState<QueryDocumentSnapshot<Store, DocumentData>[]>();
 
-  // Effect if IIFE to get all stores data from firestore
+  // Effect using IIFE to get all stores data from firestore
   useEffect(() => {
     (async () => {
       const querySnapshot = await getDocs(storesCol);

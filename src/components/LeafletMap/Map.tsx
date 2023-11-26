@@ -5,11 +5,11 @@ import {
   MapContainer, TileLayer,
 } from 'react-leaflet';
 import { LatLngExpression } from 'leaflet';
-import useStoresContext from '@/hooks/useStoresContext';
+import useStores from '@/hooks/useStores';
 import MarkerContainer from './MarkerContainer';
 
 export default function Map() {
-  const { stores } = useStoresContext();
+  const { stores } = useStores();
 
   const pereiraLocation: LatLngExpression = [4.80921871285737, -75.71239716258806];
 

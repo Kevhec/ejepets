@@ -7,7 +7,7 @@ import { urbanist } from '@/utils/fonts';
 import { DocumentData, QueryDocumentSnapshot } from 'firebase/firestore';
 import { Icon, IconOptions } from 'leaflet';
 import getMarkerIcon from '@/utils/getMarkerIcon';
-import useStoresContext from '@/hooks/useStoresContext';
+import useStores from '@/hooks/useStores';
 import StoreCard from '@/components/StoreCard';
 
 interface Props {
@@ -16,7 +16,7 @@ interface Props {
 
 export default function MarkerContainer({ store }: Props) {
   const [icon, setIcon] = useState<Icon<IconOptions> | undefined>(undefined);
-  const { selectedFilter } = useStoresContext();
+  const { selectedFilter } = useStores();
 
   const storeData = useMemo(() => store.data(), [store]);
   const storePos = storeData.location.latlng;

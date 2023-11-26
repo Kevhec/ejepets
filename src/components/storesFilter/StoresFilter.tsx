@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import useStoresContext from '@/hooks/useStoresContext';
+import useStores from '@/hooks/useStores';
 import mergeTailwind from '@/utils/mergeTailwind';
 import type { StoreName } from '@/types/stores';
 import useClickOutside from '@/hooks/useClickOutisde';
@@ -28,7 +28,7 @@ const storeDefaultStyle = 'md:font-bold text-white bg-white px-4 py-[6px] rounde
 
 export default function StoresFilter() {
   const [hasDropdown, setHasDropdown] = useState(false);
-  const { setSelectedFilter, selectedFilter } = useStoresContext();
+  const { setSelectedFilter, selectedFilter } = useStores();
   const storesKeys = Object.keys(storeStyleMap) as StoreName[];
   const ref = useClickOutside(() => {
     setHasDropdown(false);

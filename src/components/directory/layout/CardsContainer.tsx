@@ -1,13 +1,13 @@
 'use client';
 
 import React from 'react';
-import useStoresContext from '@/hooks/useStoresContext';
+import useStores from '@/hooks/useStores';
 import StoreCard from '@/components/StoreCard';
 import mergeTailwind from '@/utils/mergeTailwind';
 import { useMediaQuery } from 'react-responsive';
 
 export default function CardsContainer() {
-  const { allStores } = useStoresContext();
+  const { allStores } = useStores();
   const isTablet = useMediaQuery({ query: '(min-width: 48rem)' });
 
   return (

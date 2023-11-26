@@ -1,7 +1,7 @@
 import { StoresContext } from '@/context/storesContext';
 import { useContext } from 'react';
 
-export default function useStoresContext() {
+export default function useStores() {
   const {
     selectedFilter,
     setSelectedFilter,
