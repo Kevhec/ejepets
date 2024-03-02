@@ -8,7 +8,7 @@ export default function SelectOption({
   id, label, value, name,
 }: Props) {
   return (
-    <label htmlFor={id} className="flex gap-2">
+    <label htmlFor={id} className="flex gap-2 items-center">
       <input
         className=""
         id={id}

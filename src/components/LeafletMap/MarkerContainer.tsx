@@ -45,11 +45,12 @@ export default function MarkerContainer({ store }: Props) {
       <Popup className={urbanist.className}>
         <StoreCard
           type="map"
-          img={storeData.img}
+          images={storeData.images}
           name={storeData.name}
           description={storeData.description}
           contact={storeData.contact}
           storeId={store.id}
+          noSlider
         />
       </Popup>
     </Marker>

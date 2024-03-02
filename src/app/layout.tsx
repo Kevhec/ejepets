@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { fraunces, urbanist } from '@/utils/fonts';
 import 'leaflet/dist/leaflet.css';
-import '@/styles/main.scss';
+import '@styles/main.scss';
 import Footer from '@/components/home/layout/Footer';
 import StoresProvider from '@/context/storesContext';
 

@@ -1,11 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
 import mergeTailwind from '@/utils/mergeTailwind';
+import Slider from './Slider';
 
 type StyleTypes = 'map' | 'directory';
 
 interface Props {
-  img: string
+  images: string[]
   name: string
   description: string
   contact: {
@@ -15,6 +16,7 @@ interface Props {
   }
   storeId: string
   type: StyleTypes
+  noSlider?: boolean
 }
 
 interface StyleTypeClasses {
@@ -65,12 +67,13 @@ const typesMap: TypesMap = {
 };
 
 export default function StoreCard({
-  img,
+  images,
   name,
   description,
   contact,
   storeId,
   type,
+  noSlider,
 }: Props) {
   const mappedClasses = typesMap[type];
   const layoutClasses: StyleTypeClasses = {
@@ -91,15 +94,34 @@ export default function StoreCard({
 
   return (
     <div className={layoutClasses.container}>
-      <figure className={layoutClasses.figure}>
-        <Image
-          src={img}
-          alt={`Image of ${name}`}
-          width={296}
-          height={133}
-          className={layoutClasses.image}
-        />
-      </figure>
+      {
+        noSlider || images.length === 1 ? (
+          <figure className={layoutClasses.figure}>
+            <Image
+              src={images[0]}
+              alt={`Image of ${name}`}
+              width={296}
+              height={133}
+              className={layoutClasses.image}
+            />
+          </figure>
+        ) : (
+          <Slider
+            sliderIdentifier={storeId}
+            elements={
+              images.map((src, i) => (
+                <Image
+                  src={src}
+                  alt={`Image ${i} of ${name}`}
+                  width={296}
+                  height={133}
+                  className={layoutClasses.image}
+                />
+              ))
+            }
+          />
+        )
+      }
       <div className={layoutClasses.content}>
         <h2 className={layoutClasses.title}>{name}</h2>
         <p className={layoutClasses.description}>{description}</p>

@@ -19,10 +19,17 @@ function Admin() {
     evt.preventDefault();
     const form = evt.currentTarget as HTMLFormElement;
 
-    const data = Object.fromEntries(new FormData(form));
+    const formData = new FormData(form);
+    const singleData = Object.fromEntries(formData);
+    const imagesData = formData.getAll('storeImages');
+
+    const completeData = {
+      ...singleData,
+      storeImages: imagesData,
+    };
 
     try {
-      const documentToUpload = await formatStoreDocument(data);
+      const documentToUpload = await formatStoreDocument(completeData);
       await addDoc(storesCol, documentToUpload);
       form.reset();
     } catch (error: any) {

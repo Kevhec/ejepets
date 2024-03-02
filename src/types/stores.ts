@@ -2,7 +2,7 @@ import { GeoPoint } from 'firebase/firestore';
 
 interface Store {
   name: string
-  img: string
+  images: string[]
   description: string
   contact: { [key: string]: string }
   location: {

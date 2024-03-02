@@ -11,12 +11,12 @@ import MarkerContainer from './MarkerContainer';
 export default function Map() {
   const { stores } = useStores();
 
-  const pereiraLocation: LatLngExpression = [4.80921871285737, -75.71239716258806];
+  const PEREIRA_LOCATION: LatLngExpression = [4.80921871285737, -75.71239716258806];
 
   return (
     <MapContainer
       style={{ height: '100%' }}
-      center={pereiraLocation}
+      center={PEREIRA_LOCATION}
       zoom={12}
     >
       <TileLayer

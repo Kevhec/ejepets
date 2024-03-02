@@ -26,8 +26,10 @@ export default function GeneralData() {
       <FormInput
         type="file"
         label="Imagen"
-        name="storeImage"
-        id="storeImage"
+        name="storeImages"
+        id="storeImages"
+        accept="image/*"
+        multiple
       />
     </>
   );

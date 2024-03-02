@@ -27,7 +27,7 @@ export default function CardsContainer() {
           <div className={dashedBorderClasses}>
             <StoreCard
               type="directory"
-              img={storeData.img}
+              images={storeData.images}
               name={storeData.name}
               description={storeData.description}
               contact={storeData.contact}

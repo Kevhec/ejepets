@@ -3,11 +3,26 @@ import uploadToStorage from '@/services/firebase/storage/upload';
 import { Store } from '@/types/stores';
 import { GeoPoint } from 'firebase/firestore';
 
-async function formatStoreDocument(data: { [k: string]: FormDataEntryValue }) {
-  const uploadedImgRef = await uploadToStorage(data.storeImage as File);
-  const imageUrl = await downloadFromStorage(uploadedImgRef.fullPath);
+type Data = Record<string, FormDataEntryValue | FormDataEntryValue[]>;
 
-  const formmatedData: Store = {
+async function formatStoreDocument(data: Data) {
+  const storeImages = data.storeImages as FormDataEntryValue[];
+
+  const imagesUrls = await Promise.all(
+    (storeImages as File[]).map(async (imgFile) => {
+      try {
+        const uploadedImgRef = await uploadToStorage(imgFile);
+        const imageUrl = await downloadFromStorage(uploadedImgRef.fullPath);
+
+        return imageUrl;
+      } catch (error: any) {
+        // Handle the error or return a default value if necessary
+        return 'dogpaw.svg';
+      }
+    }),
+  );
+
+  const formattedData: Store = {
     name: String(data.storeName),
     contact: {
       tel: String(data.storeTel),
@@ -15,7 +30,7 @@ async function formatStoreDocument(data: { [k: string]: FormDataEntryValue }) {
       website: String(data.storeWebsite),
     },
     description: String(data.storeDescription),
-    img: imageUrl || '',
+    images: imagesUrls || '',
     location: {
       dir: String(data.storeDir),
       latlng: new GeoPoint(Number(data.storeLat), Number(data.storeLong)),
@@ -25,11 +40,11 @@ async function formatStoreDocument(data: { [k: string]: FormDataEntryValue }) {
 
   Object.keys(data).forEach((key) => {
     if (key.startsWith('type:')) {
-      formmatedData.types.push(String(data[key]));
+      formattedData.types.push(String(data[key]));
     }
   });
 
-  return formmatedData;
+  return formattedData;
 }
 
 export default formatStoreDocument;
