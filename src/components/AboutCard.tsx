@@ -36,6 +36,7 @@ export default function AboutCard({ children, imageProps, inverted }: Props) {
         height={pawProps.dim.h}
         alt=""
         className={`absolute top-[-60px] md:top-[-40px] ${inverted ? 'left-[-40px] -rotate-12' : 'right-[-40px] rotate-12'}`}
+        quality={80}
       />
       <div
         className="text-base lg:h-[70%] lg:flex lg:items-center font-medium lg:text-lg h-fit relative before:pointer-events-none before:content-[''] before:w-[110%] before:h-[120%] lg:before:w-[125%] lg:before:h-[140%] xl:before:w-[120%] before:bg-dashed-border before:rounded-2xl before:absolute before:top-1/2 before:left-1/2 before:-translate-x-1/2 before:-translate-y-1/2"
@@ -50,6 +51,7 @@ export default function AboutCard({ children, imageProps, inverted }: Props) {
         className={`hidden md:block object-cover w-full rounded-lg h-[300px] ${inverted ? 'order-first' : ''}`}
         width={200}
         height={300}
+        quality={80}
       />
     </div>
   );

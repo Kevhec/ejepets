@@ -22,6 +22,7 @@
       "@/*": ["./src/*"],
       "@styles/*": ["./src/scss/*"],
       "@utils/*": ["./src/utils/*"],
+      "@public/*": ["./public/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "swiper.d.ts"],

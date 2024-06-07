@@ -1,8 +1,11 @@
-import React from 'react';
+'use client'
+
+import React, { useState } from 'react';
 import Image from 'next/image';
 import mergeTailwind from '@/utils/mergeTailwind';
 import Slider from './Slider';
 import ContactButton from './ContactButton';
+import Loader from './Loader';
 
 type StyleTypes = 'map' | 'directory';
 
@@ -51,7 +54,7 @@ const directoryTypeClasses: StyleTypeClasses = {
 const baseStyles: StyleTypeClasses = {
   container: 'gap-2',
   image: 'object-cover rounded-md',
-  figure: '',
+  figure: 'overflow-y-hidden',
   content: 'text-sm',
   title: 'text-lg capitalize mb-1',
   contactItem: 'lg:text-base m-0 truncate',
@@ -76,6 +79,7 @@ export default function StoreCard({
   type,
   noSlider,
 }: Props) {
+  const [imageLoading, setImageLoading] = useState(true);
   const mappedClasses = typesMap[type];
   const layoutClasses: StyleTypeClasses = {
     container: '',
@@ -93,17 +97,28 @@ export default function StoreCard({
     );
   });
 
+  const onImageLoad = () => {
+    setImageLoading(false);
+  }
+
   return (
     <div className={layoutClasses.container}>
       {
         noSlider || images.length === 1 ? (
           <figure className={layoutClasses.figure}>
+            {
+              imageLoading && (
+                <Loader color='#000' />
+              )
+            }
             <Image
               src={images[0]}
               alt={`Image of ${name}`}
               width={296}
               height={133}
               className={layoutClasses.image}
+              onLoad={onImageLoad}
+              priority
             />
           </figure>
         ) : (

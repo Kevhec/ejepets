@@ -1,9 +1,12 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import StoresFilter from '@/components/storesFilter/StoresFilter';
+import Loader from '../../Loader';
 
 const DynamicMap = dynamic(() => import('@/components/LeafletMap/Map'), {
-  loading: () => <p>Loading...</p>,
+  loading: () => (
+    <div className='h-full bg-white'><Loader color='#000'/></div>
+  ),
   ssr: false,
 });
 

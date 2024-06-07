@@ -1,8 +1,17 @@
 import React from 'react';
 
-export default function Loader() {
+interface Props {
+  color?: string
+}
+
+export default function Loader({ color }: Props) {
   return (
-    <div className="w-full h-full flex items-center justify-center">
+    <div
+      className="w-full h-full flex items-center justify-center"
+      style={{
+        '--color': '#000'
+      } as React.CSSProperties}
+    >
       <div className="sk-fading-circle">
         <div className="sk-circle1 sk-circle" />
         <div className="sk-circle2 sk-circle" />

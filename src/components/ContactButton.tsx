@@ -2,7 +2,7 @@ import React from 'react';
 import Icon from './icon';
 import { IconVariant } from './icon/iconTypes';
 
-type AllowedTypes = 'tel' | 'website' | string;
+type AllowedTypes = 'tel' | 'website' | 'email' | string;
 
 interface Props {
   type: AllowedTypes
@@ -10,14 +10,19 @@ interface Props {
 }
 
 export default function ContactButton({ type, href }: Props) {
+  console.log(type)
   let formattedHref;
 
   switch (type) {
     case 'tel':
       formattedHref = `tel:${href}`;
       break;
+    case 'email':
+      formattedHref = `mailto:${href}`
+      break;
     default:
       formattedHref = href;
+      break;
   }
 
   return (
