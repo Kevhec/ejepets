@@ -1,7 +1,7 @@
 import React from 'react';
 import AboutCard from '@/components/AboutCard';
-import pelulandia1 from 'public/pelulandia1.jpg';
-import pelulandia2 from 'public/pelulandia2.webp';
+import pelulandia1 from '@/images/pelulandia1.jpg';
+import pelulandia2 from '@/images/pelulandia2.webp';
 
 export default function AboutSection() {
   return (

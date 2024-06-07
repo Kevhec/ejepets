@@ -11,7 +11,7 @@ const nextConfig = {
         hostname: 'firebasestorage.googleapis.com'
       }
     ]
-  }
+  },
 }
 
 module.exports = nextConfig
