@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import logoSm from '/logo-sm.svg';
+import logoSm from 'logo-sm.svg';
 import CardsContainer from '@/components/directory/layout/CardsContainer';
 
 export default function Dir() {
