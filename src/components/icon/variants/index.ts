@@ -7,6 +7,9 @@ import Restaurante from './Restaurante';
 import Parque from './Parque';
 import Hotel from './Hotel';
 import Search from './Search';
+import Telephone from './Telephone';
+import Website from './Website';
+import Email from './Email';
 
 export {
   MapFlag,
@@ -18,4 +21,7 @@ export {
   Parque,
   Hotel,
   Search,
+  Telephone,
+  Website,
+  Email,
 };

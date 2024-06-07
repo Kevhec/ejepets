@@ -22,7 +22,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initiaize database
+// Initialize database
 const db = getFirestore(app);
 
 // Initialize storage

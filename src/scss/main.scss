@@ -23,7 +23,7 @@
 }
 
 .leaflet-popup-content {
-  margin: 16px;
+  margin: 0 16px;
   margin-left: 0px;
   p {
     margin: 0;
@@ -195,4 +195,14 @@
 *::-webkit-scrollbar-thumb {
   background-color: var(--scrollbarColorPrimary);
   border-radius: 8px;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }

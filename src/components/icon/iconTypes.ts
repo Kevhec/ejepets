@@ -8,7 +8,10 @@ export type IconVariant =
   | 'tienda'
   | 'restaurante'
   | 'parque'
-  | 'hotel';
+  | 'hotel'
+  | 'tel'
+  | 'website'
+  | 'email';
 
 export interface IconVariantProps {
   fill?: string

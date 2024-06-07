@@ -22,6 +22,7 @@ const config: Config = {
         'apple-green': '#80BE0B',
         crimnson: '#8B2323',
         transparent: 'transparent',
+        'dark-cyan': '#4A9396',
       },
       fontFamily: {
         urbanist: ['var(--font-urbanist)'],

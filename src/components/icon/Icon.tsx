@@ -10,6 +10,9 @@ import {
   Restaurante,
   Parque,
   Hotel,
+  Telephone,
+  Website,
+  Email,
 } from './variants';
 
 interface Props extends IconVariantProps {
@@ -25,6 +28,9 @@ const iconComponentMapping: IconComponentMapping = {
   restaurante: Restaurante,
   parque: Parque,
   hotel: Hotel,
+  tel: Telephone,
+  website: Website,
+  email: Email,
 };
 
 export default function Icon({
